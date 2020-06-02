@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gitlab
+  namespace: argocd
+spec:
+  destination:
+    namespace: gitlab
+    server: https://api.ocp.chris.domain:6443
+  project: default
+  source:
+    path: namespaces/gitlab
+    repoURL: https://github.com/Markieta/argocd-openshift-demo
+    targetRevision: master
